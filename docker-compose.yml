@@ -1,0 +1,27 @@
+version: '1.0'
+services:
+  # Servicio web ( Apache + PHP )
+  web:
+    build: ./docker/php
+    container_name: mi_apache_php
+    ports:
+      - "8000:80"
+    volumes:
+      - ./public:/var/www/html
+    depends_on:
+      - db
+    #Base de datos
+  db:
+    image: mariadb:10.11
+    container_name: mi_maria_db
+    environment:
+      MYSQL_ROOT_PASS: ${MYSQL_ROOT_PASS}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASS: ${MYSQL_PASS}
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+volumes: 
+  db_data:
