@@ -11,14 +11,14 @@
     <h1>Un grano de mostaza</h1>
 </head>
 <body>
-    <form action="Bienvenida/bienvenida.php" method="post">
+    <form action="menu/" method="post">
         <input type="text" placeholder="Usuario" name="nombre"/>
         <br>
         <input type="password" placeholder="Contraseña" name="password"/>
         <br>
         <input type="submit" value="Iniciar sesion" />
         <br>
-        <a href="https://www.youtube.com">Generar cuenta</a>
+        <a href="usuario/">Generar cuenta</a>
         <br>
         <a href="https://www.youtube.com">Olvide mi contraseña</a>
     </form>
