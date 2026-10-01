@@ -5,6 +5,16 @@ section {
     gap: 30px;
 }
 
+#informacion {
+    flex-wrap: wrap; 
+    height: auto;
+    max-height: 300px;
+    max-width: 200px;
+    overflow: auto;
+    text-align: justify;
+    width: 100%;
+}
+
 /*
 Jerarquia
 1. #
