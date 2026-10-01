@@ -1,3 +1,5 @@
-const boton = document.getElementById("generarUsuario")
+const boton = document.getElementById("#generarUsuario")
 
-boton.addEventListener("click", function() {};)
+boton.addEventListener("click", () => {
+    alert('Diste clic en le boton')
+});
