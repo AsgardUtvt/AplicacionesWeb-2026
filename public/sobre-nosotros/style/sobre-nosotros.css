@@ -1,0 +1,22 @@
+/* Hago referencia en todo el html*/
+section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/*
+Jerarquia
+1. #
+2. .
+3. etiqueta
+
+con punto hago referencia mediante una class="nombre" en ese estilo.
+ .nombre {
+ }
+
+ con almoadilla hago referencia mediante el id="nombre" afectando solo a esos elementos con ese id
+ #nombre {
+ }
+ */
+
