@@ -11,7 +11,7 @@ section {
     max-height: 300px;
     max-width: 200px;
     overflow: auto;
-    text-align: justify;
+    text-align: left;
     width: 100%;
 }
 
