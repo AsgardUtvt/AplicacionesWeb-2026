@@ -1,4 +1,4 @@
-version: '1.0'
+
 services:
   # Servicio web ( Apache + PHP )
   web:
@@ -12,13 +12,13 @@ services:
       - db
     #Base de datos
   db:
-    image: mariadb:10.11
+    image: mariadb:lts-ubi10
     container_name: mi_maria_db
     environment:
-      MYSQL_ROOT_PASS: ${MYSQL_ROOT_PASS}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASS}
+      MARIADB_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASS: ${MYSQL_PASS}
+      MYSQL_PASSWOR: ${MYSQL_PASS}
     ports:
       - "3307:3306"
     volumes:
