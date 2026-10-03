@@ -19,6 +19,7 @@ $calleDos = $_GET['calleDos'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/usuario-estilo.css">
 </head>
 <body>
     <table style=" border: 3px solid black; border-color: black; border-collapse: collapse;">

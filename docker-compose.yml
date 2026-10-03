@@ -17,8 +17,8 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASS}
       MARIADB_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWOR: ${MYSQL_PASS}
+      MARIAD _USER: ${MYSQL_USER}
+      MARIADB_PASSWORD: ${MYSQL_PASS}
     ports:
       - "3307:3306"
     volumes:
