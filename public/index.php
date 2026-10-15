@@ -11,6 +11,9 @@
     <h1>Un grano de mostaza</h1>
 </head>
 <body>
+    <div>
+        <label>Este sera el contenedor de la imagen.</label>
+    </div>
     <form action="menu/" method="post">
         <input type="text" placeholder="Usuario" name="nombre"/>
         <br>
@@ -20,7 +23,7 @@
         <br>
         <a href="usuario/">Generar cuenta</a>
         <br>
-        <a href="https://www.youtube.com">Olvide mi contraseña</a>
+        <a href="../app/login/recuperar-cuenta.php">Olvide mi contraseña</a>
     </form>
 </body>
 </html>

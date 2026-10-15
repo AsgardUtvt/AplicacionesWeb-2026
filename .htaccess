@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Si alguien pide una ruta, reescribirla silenciosamente hacia la carpeta public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+

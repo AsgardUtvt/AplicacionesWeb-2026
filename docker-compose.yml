@@ -8,6 +8,7 @@ services:
       - "8000:80"
     volumes:
       - ./public:/var/www/html
+      - ./docker/vhost.conf:/etc/apache2/sites-avaible/000-default.conf
     depends_on:
       - db
     #Base de datos
