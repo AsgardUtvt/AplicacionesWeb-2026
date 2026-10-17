@@ -1,0 +1,54 @@
+.container {
+    align-items: center;
+    border: 1px solid blue;
+    height: 307px;
+    width: 300px;
+}
+
+.bottomBtnLeft {
+    border-radius: 20px;
+    border: 1px solid black;
+    float: left;
+    height: 20px;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    width: 125px;
+}
+
+.bottomBtnRight {
+    align-items:  center;
+    border-radius: 20px;
+    border: 1px solid black;
+    display: flex;
+    float: right;
+    justify-content: center;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    width: 150px ;
+}
+
+.div-imagen {
+    background-color: aqua;
+    border: 1px dotted black;
+    height: 100px;
+    text-align: center;
+}
+
+.div-form {
+    background-color: azure;
+    border: 1px dashed red;
+    height: 167px;
+}
+
+form {
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}

@@ -11,6 +11,8 @@ $nombre = $_POST['nombre'];
     <title>Document</title>
 </head>
 <body>
-<p> Bienvenido <?php echo $nombre; ?> </p>    
+    <p> Bienvenido <?php echo $nombre; ?> </p>  
+    <div>
+    </div>
 </body>
 
