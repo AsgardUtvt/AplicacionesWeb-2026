@@ -8,11 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio sesion</title>
-    <h1>Un grano de mostaza</h1>
     <link rel="stylesheet" href="style/style-login/style.css"
 </head>
 <body>
     <div class="container">
+    <h1>Un grano de mostaza</h1>
     <div class="div-imagen">
         Imagen
     </div>
