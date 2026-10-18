@@ -1,6 +1,13 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-    # Si alguien pide una ruta, reescribirla silenciosamente hacia la carpeta public
-    RewriteRule ^(.*)$ public/$1 [L]
+# Activar 
+RewriteEngine On
+# Bloquear la navegación
+Options All -Indexes
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ index.php?url=$1
+RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ .index.php?url=$1 
 </IfModule>
+
 

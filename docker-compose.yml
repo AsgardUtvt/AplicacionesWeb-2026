@@ -11,6 +11,7 @@ services:
       - ./docker/vhost.conf:/etc/apache2/sites-avaible/000-default.conf
     depends_on:
       - db
+    command: sh -c "echo 'ServerName localhost' >> /etc/apache2/apache2.conf && apache2-foreground"
     #Base de datos
   db:
     image: mariadb:lts-ubi10
