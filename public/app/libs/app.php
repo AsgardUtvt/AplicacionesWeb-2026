@@ -5,7 +5,15 @@ class App{
     {
         echo "<p> Nueva app</p>";
         $url = isset($_GET['url']) ? $_GET['url'] : 'No hay nada';
-        echo $url;
+        $url = rtrim($url, '/');
+        $url = explode('/', $url);
+
+        $archivoController = '../' . $url[0] . '/';
+
+        require_once($archivoController);
+        $controller = new $url[0];
     } 
 }
 ?>
+
+
