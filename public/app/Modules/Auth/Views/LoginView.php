@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Modules\Auth\Views;
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
         Imagen
     </div>
     <div class="div-form">
-        <form action="menu/" method="post">
+        <form action="/auth/login/procesar" method="post">
             <input type="text" placeholder="Usuario" name="nombre"/>
             <br>
             <input type="password" placeholder="Contraseña" name="password"/>
