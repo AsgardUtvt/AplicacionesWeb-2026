@@ -26,10 +26,10 @@ namespace App\Modules\Auth\Views;
         </form>
     </div>
         <div class="bottomBtnLeft">
-            <a href="usuario/generar-cuenta.php">Generar cuenta</a>
+            <a href="/auth/login/generarCuenta">Generar cuenta</a>
         </div>
         <div class="bottomBtnRight">
-        <a href="../views/v-recuperar-cuenta">Olvide mi contraseña</a>
+        <a href="/auth/login/recuperarCuenta">Olvide mi contraseña</a>
         </div>
     </div>
 </body>

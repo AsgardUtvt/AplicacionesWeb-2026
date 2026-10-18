@@ -5,5 +5,6 @@ $url = $_GET['url'] ?? '';
 $url = trim($url, '/');
 $router = new Router();
 $router->resolve($url);
+
 ?>
 

@@ -4,9 +4,15 @@ namespace App\Modules\Auth\Controllers;
 use App\Core\Controller;
 use App\Modules\Auth\Models\LoginModel;
 
+const RECUPERAR = "LoginRecuperarCuentaView";
+const LOGIN = "LoginView";
+const GENERAR = "LoginGenerarCuentaView";
+
+const VACIO = [ "nada" => null];
 class LoginController extends Controller {
+
     public function index(){
-        $this->view('LoginView', ['titulo' => 'Iniciar Sesión']);
+        $this->view(LOGIN, ['titulo' => 'Iniciar Sesión']);
     }
 
     public function procesar() {
@@ -24,6 +30,14 @@ class LoginController extends Controller {
                 'error' => 'Usuario no encontrado'
             ]);
         }
+    }
+
+    public function recuperarCuenta(){
+        $this->view( RECUPERAR, ['nada' => null]);
+    }
+
+    public function generarCuenta(){
+        $this->view( GENERAR, VACIO);
     }
 }
 
