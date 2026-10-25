@@ -17,7 +17,7 @@ class Router{
         $controller =  ucfirst($parts[1]."Controller" ?? 'LoginController ' ); 
         $method =  $parts[2] ?? 'index';
 
-        $controllerClass = "App\\Modules\\{$module}\\Controllers\\{$controller}";
+        $controllerClass = "\\App\\Modules\\{$module}\\Controllers\\{$controller}";
 
 
         if (class_exists($controllerClass, $method)){

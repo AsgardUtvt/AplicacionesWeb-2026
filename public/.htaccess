@@ -6,7 +6,7 @@ RewriteEngine On
 
 # Protege archivos css, js , imagenes, etc
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php !-f
+RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
 </IfModule>
