@@ -1,13 +1,14 @@
 <IfModule mod_rewrite.c>
-# Activar 
-RewriteEngine On
-# Bloquear la navegación
+# Bloquear la navegación de directorios
 Options All -Indexes
+
 RewriteEngine On
+
+# Protege archivos css, js , imagenes, etc
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.*)$ index.php?url=$1
-RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ .index.php?url=$1 
+RewriteCond %{REQUEST_FILENAME}.php !-f
+
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
 </IfModule>
 
 
