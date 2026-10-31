@@ -3,10 +3,11 @@ namespace App\Modules\Auth\Controllers;
 
 use App\Core\Controller;
 use App\Modules\Auth\Models\LoginModel;
-
+use App\Modules\Usuario\Models\UsuarioModel;
 const RECUPERAR = "LoginRecuperarCuentaView";
 const LOGIN = "LoginView";
 const GENERAR = "LoginGenerarCuentaView";
+const USUARIO = "UsuarioView";
 
 const VACIO = [ "nada" => null];
 class LoginController extends Controller {
@@ -37,8 +38,40 @@ class LoginController extends Controller {
     }
 
     public function generarCuenta(){
+
         $this->view( GENERAR, VACIO);
+
+
+
     }
+    public function usuarioview(){
+
+        $usuarioModel = new UsuarioModel();
+        $usuarioModel->usuario_name = $_GET['nombre'];
+        $usuarioModel->usuario_paterno = $_GET['paterno'];
+        $usuarioModel->usuario_materno = $_GET['materno'];
+        $usuarioModel->usuario_correo = $_GET['email'];
+        $usuarioModel->usuario_password = $_GET['password'];
+        $usuarioModel->usuario_localidad = $_GET['localidad'];
+        $usuarioModel->usuario_colonia = $_GET['colonia'];
+        $usuarioModel->usuario_cp = $_GET['codigoPostal'];
+        $usuarioModel->usuario_municipio = $_GET['municipio'];
+        $usuarioModel->usuario_calle_principal = $_GET['callePrincipal'];
+        $usuarioModel->usuario_calle_izquierda = $_GET['calleUno'];
+        $usuarioModel->usuario_calle_derecha = $_GET['calleDos'];
+        $usuarioModel->usuario_num_exterior = $_GET['numEx'];
+        $usuarioModel->usuario_num_interior = $_GET['numInt'];
+        $usuarioModel->id_estado= 1;
+        $usuarioModel->id_tipo_usuario = 1;
+
+        if($usuarioModel->insertarusuario()){
+            $this->view(USUARIO, ['nada' => null]);
+        }
+        else{
+            $this->index();
+        }
+    }
+
 }
 
 ?>
