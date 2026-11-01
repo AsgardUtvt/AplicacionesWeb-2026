@@ -63,9 +63,10 @@ class LoginController extends Controller {
         $usuarioModel->usuario_num_interior = $_GET['numInt'];
         $usuarioModel->id_estado= 1;
         $usuarioModel->id_tipo_usuario = 1;
+        extract($usuarioModel->insertarusuario());
+        if($resultado){
+            $this->view(USUARIO, ['datos_usuario' => $usuarioModel->consultar_datos($id_usuario), "id" => $id_usuario]);
 
-        if($usuarioModel->insertarusuario()){
-            $this->view(USUARIO, ['nada' => null]);
         }
         else{
             $this->index();

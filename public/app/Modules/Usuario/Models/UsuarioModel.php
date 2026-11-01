@@ -71,7 +71,58 @@ class UsuarioModel {
             $v10, $v11, $v12, $v13, $v14, $v15, $v16
         );
 
-        return $stmt->execute();
+        $resultado = $stmt->execute();
+        $last_id = $this->con->insert_id;
+        $stmt->close();
+
+        return ["resultado" => $resultado, "id_usuario" => $last_id ];
+    }
+
+    public function consultar_datos(int $number_id): array{
+        $usuarioModel = new UsuarioModel();
+        $sql="SELECT 
+            u.usuario_name,
+            u.usuario_paterno,
+            u.usuario_materno,
+            u.usuario_correo,
+            u.usuario_localidad,
+            u.usuario_colonia,
+            u.usuario_cp,
+            u.usuario_municipio,
+            u.usuario_calle_principal,
+            u.usuario_calle_izquierda,
+            u.usuario_calle_derecha,
+            u.usuario_num_exterior,
+            u.usuario_num_interior
+            FROM usuario u
+            WHERE u.id_usuario = ?;";
+        $stmt = $this->con->prepare($sql);
+        if($stmt){
+            $stmt->bind_param("i", $number_id);
+            $stmt->execute();
+            $stmt->bind_result(
+                $usuarioModel->usuario_name,
+                $usuarioModel->usuario_paterno,
+                $usuarioModel->usuario_materno,
+                $usuarioModel->usuario_correo,
+                $usuarioModel->usuario_localidad,
+                $usuarioModel->usuario_colonia,
+                $usuarioModel->usuario_cp,
+                $usuarioModel->usuario_municipio,
+                $usuarioModel->usuario_calle_principal,
+                $usuarioModel->usuario_calle_izquierda, 
+                $usuarioModel->usuario_calle_derecha,
+                $usuarioModel->usuario_num_exterior, 
+                $usuarioModel->usuario_num_interior,
+            );
+            $resultado = $stmt->get_result();
+            $usuario_array = $resultado->fetch_assoc();
+            $stmt->close();
+
+            return $usuario_array;
+        }else{
+            return [];
+        }
     }
 }
 
