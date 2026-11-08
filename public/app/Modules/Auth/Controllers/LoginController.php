@@ -4,10 +4,14 @@ namespace App\Modules\Auth\Controllers;
 use App\Core\Controller;
 use App\Modules\Auth\Models\LoginModel;
 use App\Modules\Usuario\Models\UsuarioModel;
+use App\Service;
+use App\Service\GeneralServices;
+
 const RECUPERAR = "LoginRecuperarCuentaView";
 const LOGIN = "LoginView";
 const GENERAR = "LoginGenerarCuentaView";
 const USUARIO = "UsuarioView";
+const MENU = "Menu\MenuView";
 
 const VACIO = [ "nada" => null];
 class LoginController extends Controller {
@@ -23,7 +27,7 @@ class LoginController extends Controller {
         $model = new LoginModel();
 
         if ($model->verificacionUsuario($user, $password)){
-            echo "Login exitoso";
+            $this->view(MENU, VACIO, 0);
 
         }else {
             $this->view('LoginView', [
@@ -71,6 +75,15 @@ class LoginController extends Controller {
         else{
             $this->index();
         }
+    }
+
+    public function validar_usuario_pass(string $usuario, string $pass) {
+
+        if (GeneralServices::VerificatePasswordHash($usuario, $pass))
+        {
+            $this->view(MENU, VACIO );
+        }
+        
     }
 
 }
