@@ -1,0 +1,310 @@
+@property --margin {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 20px;
+}
+
+
+@font-face {
+    font-family:'beezee';
+    src: url('../tipografias/ABeeZee-Regular.ttf') format('truetype');
+}
+
+body,
+footer,
+head{
+    background-color: #fff9e3;
+}
+
+*{
+    font-family: 'beezee', sans-serif; 
+
+}
+
+
+/*Estilos para los botones*/
+
+/* ==========================================================================
+1. ESTILO BASE PARA TODOS LOS BOTONES
+========================================================================== */
+    button,
+    input[type="submit"],
+    input[type="button"],
+    input[type="reset"] {
+
+        width: var(--ancho, auto);
+        height: var(--alto, auto);
+        background-color: #fcf29e; /* Color por defecto (Amarillo) */
+        background-position: center;
+        border-radius: 5px;
+        border: 1px solid #000000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        color: #000000;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'beezee', sans-serif;
+        font-size: 16px;
+        overflow: hidden;
+        padding: 10px 20px;
+        position: relative;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Base para los efectos al pasar el mouse por encima */
+    button:hover,
+    input[type="submit"]:hover,
+    input[type="button"]:hover,
+    input[type="reset"]:hover {
+        filter: brightness(0.9); /* Oscurece ligeramente cualquier botón */
+    }
+
+    /* Base para  el efecto físico inmediato al presionar el clic */
+    button:active,
+    input[type="submit"]:active,
+    input[type="button"]:active,
+    input[type="reset"]:active {
+        transform: scale(0.98); /* Pequeño hundimiento físico */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ==========================================================================
+    2. VARIANTES DE COLOR SEGÚN EL TIPO (TYPE)
+    ========================================================================== */
+
+    /* --- BOTÓN DE ENVÍO (type="submit") -> AZUL --- */
+    button[type="submit"],
+    input[type="submit"] {
+        background-color: #e8df8d;
+        color: #000000;
+    }
+    button[type="submit"]:hover,
+    input[type="submit"]:hover {
+        background-color: #e8df8d;
+    }
+
+    /* --- BOTÓN DE REINICIO (type="reset") -> ROJO --- */
+    button[type="reset"],
+    input[type="reset"] {
+        background-color: #dc3545;
+        color: #ffffff;
+    }
+    button[type="reset"]:hover,
+    input[type="reset"]:hover {
+        background-color: #bd2130;
+    }
+
+    /* --- BOTÓN GENÉRICO (type="button") -> GRIS --- */
+    button[type="button"],
+    input[type="button"] {
+        background-color: #6c757d;
+        color: #ffffff;
+    }
+    button[type="button"]:hover,
+    input[type="button"]:hover {
+        background-color: #545b62;
+    }
+
+    /* ==========================================================================
+    3. CLASE PARA LA ONDA EXPANSIVA (COMPLEMENTO DE JAVASCRIPT)
+    ========================================================================== */
+    .onda-ripple {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: expandirOnda 0.5s linear;
+        pointer-events: none;
+    }
+
+    @keyframes expandirOnda {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+
+
+
+/* ==========================================================================
+   ESTILOS GENERALES Y FUENTE
+   ========================================================================== */
+.input-contenedor {
+  position: relative;
+  margin: var(--margin) 0;
+  font-family: 'beezee', sans-serif;
+  display: inline-block;
+}
+
+.input-contenedor input {
+  font-family: 'beezee', sans-serif;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  padding: 16px 12px;
+  width: 280px;
+  color: #333333;
+}
+
+/* La etiqueta por defecto inicia flotando en el centro del input */
+.input-contenedor label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #757575;
+  font-size: 16px;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  padding: 0 4px;
+}
+
+/* ==========================================================================
+   ESTILO 1: CONTORNEADO (Outline - Imágenes 1 y 2)
+   ========================================================================== */
+.input-outline input {
+  border: 1px solid #7a7a7a;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+/* Cuando se hace clic (focus) o tiene texto escrito (no muestra placeholder) */
+.input-outline input:focus,
+.input-outline input:not(:placeholder-shown) {
+  border: 2px solid #556b2f; /* Color verde oliva de tu imagen */
+}
+
+/* Animación de la etiqueta flotando hacia el borde superior */
+.input-outline input:focus ~ label,
+.input-outline input:not(:placeholder-shown) ~ label {
+  top: 0;
+  font-size: 12px;
+  color: #556b2f;
+  background-color: #fff9e3; /* Fondo que tapa la línea del borde */
+}
+
+/* ==========================================================================
+   ESTILO 2: RELLENO (Filled - Imágenes 3 y 4)
+   ========================================================================== */
+.input-filled input {
+  border: none;
+  border-bottom: 1px solid #7a7a7a;
+  border-radius: 4px 4px 0 0;
+  background-color: #e8e3d0; /* Color grisáceo de fondo */
+  padding-top: 24px; /* Espacio extra para que la etiqueta quepa arriba */
+  padding-bottom: 8px;
+}
+
+.input-filled input:focus,
+.input-filled input:not(:placeholder-shown) {
+  border-bottom: 2px solid #556b2f;
+}
+
+/* Animación de la etiqueta subiendo dentro del contenedor relleno */
+.input-filled input:focus ~ label,
+.input-filled input:not(:placeholder-shown) ~ label {
+  top: 14px;
+  font-size: 12px;
+  color: #556b2f;
+}
+
+
+/* 1. Oculta las flechas en Chrome, Safari, Edge y Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 2. Oculta las flechas en Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ==========================================================================
+   ESTILO PARA LOS <A>
+   ========================================================================== */
+/*Estilo 1*/
+
+.link-material {
+  color: #556b2f; /* El color verde oliva de tus inputs */
+  text-decoration: none;
+  position: relative;
+  font-family: 'beezee', sans-serif;
+  font-weight: bold;
+  padding-bottom: 2px;
+}
+
+/* Creamos la línea invisible en el centro */
+.link-material::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #556b2f;
+  transform-origin: bottom center;
+  transition: transform 0.3s ease-out;
+}
+
+/* Al pasar el mouse, la línea se expande al 100% */
+.link-material:hover::after {
+  transform: scaleX(1);
+}
+
+/*Estilo 2*/
+
+.link-resaltado {
+  color: #000000;
+  text-decoration: none;
+  font-family: 'beezee', sans-serif;
+  font-weight: bold;
+  box-shadow: inset 0 -6px 0 #fcf29e; /* Línea gruesa amarilla en la base */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Al pasar el mouse, la línea sube y cubre el fondo */
+.link-resaltado:hover {
+  background-color: #fcf29e;
+  box-shadow: inset 0 -20px 0 #fcf29e;
+}
+/*Estilo 3*/
+
+.link-fantasma {
+  color: #6c757d; /* Gris de tus botones secundarios */
+  text-decoration: none;
+  font-family: 'beezee', sans-serif;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.link-fantasma:hover {
+  color: #000000;
+  border-color: #6c757d;
+  background-color: rgba(108, 117, 125, 0.05); /* Fondo gris casi invisible */
+}
+/*Estilo 4*/
+
+.link-flecha {
+  color: #007bff; /* Azul de tus botones principales */
+  text-decoration: none;
+  font-family: 'beezee', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.link-flecha::after {
+  content: '→';
+  margin-left: 5px;
+  transition: transform 0.2s ease;
+}
+
+/* La flecha se mueve a la derecha al hacer hover */
+.link-flecha:hover::after {
+  transform: translateX(5px);
+}
