@@ -1,9 +1,9 @@
 <?php 
-namespace services;
+namespace App\Service;
 
 class GeneralServices{
 
-    function PasswordHash(string $password): string
+    public static function PasswordHash(string $password): string
     {
         /*
          Fucnio para retornar una contraseña encriptada.
@@ -12,7 +12,7 @@ class GeneralServices{
         return $passrowdHash;
     }
 
-    function VerificatePasswordHash(string $password, string $dbPassword): bool 
+    public static function VerificatePasswordHash(string $password, string $dbPassword): bool 
     {
         /*
          Funcion que retorna un bool cuando se verifica la contraseña
