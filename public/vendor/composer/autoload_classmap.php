@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Core\\Controller' => $baseDir . '/app/Core/Controller.php',
     'App\\Core\\Router' => $baseDir . '/app/Core/Router.php',
+    'App\\DataBase\\IDataBase' => $baseDir . '/app/DataBase/IDataBase.php',
+    'App\\DataBase\\MySqlDataBase' => $baseDir . '/app/DataBase/MySqlDataBase.php',
     'App\\Modules\\Auth\\Controllers\\LoginController' => $baseDir . '/app/Modules/Auth/Controllers/LoginController.php',
     'App\\Modules\\Auth\\Enums\\View' => $baseDir . '/app/Modules/Auth/Enums/View.php',
     'App\\Modules\\Auth\\Models\\LoginModel' => $baseDir . '/app/Modules/Auth/Models/LoginModel.php',

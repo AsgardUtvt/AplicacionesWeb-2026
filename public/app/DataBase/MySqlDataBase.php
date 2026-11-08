@@ -2,7 +2,6 @@
 namespace App\DataBase;
 
 use mysqli;
-use App\DataBase\IDataBase;
 
 class MySqlDataBase implements IDataBase {
 
@@ -49,7 +48,7 @@ class MySqlDataBase implements IDataBase {
 
     public function desconectar(): void
     {
-        if($this->con){$this->con->close();}
+        if($this->con != null){$this->con->close(); $this->con = null;}
     }
 
     public function __destruct()

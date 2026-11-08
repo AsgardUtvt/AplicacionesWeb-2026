@@ -19,6 +19,7 @@ namespace App\Modules\Menu\Views;
             background-color: #f7f9f8; 
             color: #2d3748; 
             line-height: 1.6;
+            margin-left: 74px;
         }
 
         /* --- SIDEBAR OVERLAY --- */

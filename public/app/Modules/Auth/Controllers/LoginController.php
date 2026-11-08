@@ -2,9 +2,8 @@
 namespace App\Modules\Auth\Controllers;
 
 use App\Core\Controller;
-use App\Modules\Auth\Models\LoginModel;
 use App\Modules\Usuario\Models\UsuarioModel;
-use App\Service\GeneralServices;
+use App\Services\GeneralServices;
 
 const RECUPERAR = "LoginRecuperarCuentaView";
 const LOGIN = "LoginView";
@@ -23,9 +22,11 @@ class LoginController extends Controller {
         $user = $_POST['email'];
         $password = $_POST['password'];
 
-        $model = new LoginModel();
+        $usuarioModel = new UsuarioModel();
+        extract($usuarioModel->comprobar_usuario($user));
 
-        if ($model->verificacionUsuario($user, $password)){
+        if ($resultado && $datos['usuario_password'] != null){
+            if(GeneralServices::VerificatePasswordHash($password, $datos['usuario_password']))
             $this->view(MENU, VACIO, 0);
 
         }else {

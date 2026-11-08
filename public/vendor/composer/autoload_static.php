@@ -35,6 +35,7 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         array (
             'App\\Services\\' => 13,
             'App\\Modules\\' => 12,
+            'App\\DataBase\\' => 13,
             'App\\Core\\' => 9,
         ),
     );
@@ -72,6 +73,10 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         array (
             0 => __DIR__ . '/../..' . '/app/Modules',
         ),
+        'App\\DataBase\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/app/DataBase',
+        ),
         'App\\Core\\' =>
         array (
             0 => __DIR__ . '/../..' . '/app/Core',
@@ -81,6 +86,8 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
     public static $classMap = array (
         'App\\Core\\Controller' => __DIR__ . '/../..' . '/app/Core/Controller.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/app/Core/Router.php',
+        'App\\DataBase\\IDataBase' => __DIR__ . '/../..' . '/app/DataBase/IDataBase.php',
+        'App\\DataBase\\MySqlDataBase' => __DIR__ . '/../..' . '/app/DataBase/MySqlDataBase.php',
         'App\\Modules\\Auth\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Modules/Auth/Controllers/LoginController.php',
         'App\\Modules\\Auth\\Enums\\View' => __DIR__ . '/../..' . '/app/Modules/Auth/Enums/View.php',
         'App\\Modules\\Auth\\Models\\LoginModel' => __DIR__ . '/../..' . '/app/Modules/Auth/Models/LoginModel.php',

@@ -35,9 +35,6 @@ I    */
 
             $parts = explode('\\', $viewName);
 
-            echo "<pre>";
-            echo var_dump($parts);
-            echo "<pre>";
 
             $moduleName = $parts[0];
             $viewModuleName = $parts[1];

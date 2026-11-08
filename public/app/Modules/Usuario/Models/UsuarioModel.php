@@ -118,6 +118,21 @@ class UsuarioModel {
             return [];
         }
     }
+
+    public function comprobar_usuario(string $email): array {
+        $sql = "SELECT u.usuario_password FROM usuario u WHERE u.usuario_correo = ?";
+        $stmt = $this->con->prepare($sql);
+        if($stmt){
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+            $result_array = $resultado->fetch_assoc();
+            $stmt->close();
+            return ["resultado" => true, "datos" => $result_array];
+        }else {
+            return ["resultado" => false, "datos" => null];
+        }
+    }
 }
 
 ?>
