@@ -11,7 +11,7 @@
     <h1>Generar usuario</h1>
 </head>
 <body>
-    <form action="datos-generar-usuario.php" method="get">
+    <form action="usuarioview" method="get">
         <h2>Datos de usuario</h2>
         <br>
         <input type="text" placeholder="Nombre" name="nombre" required />
@@ -41,6 +41,10 @@
         <input type="text" placeholder="Calle 1" name="calleUno"/>
         <br>
         <input type="text" placeholder="Calle 2" name="calleDos"/>
+        <br>
+        <input type="text" placeholder="Numero exterior" name="numEx"/>
+        <br>
+        <input type="text" placeholder="Numero interior" name="numInt"/>
         <br>
         <input type="submit" value="Generar usuario" id="generarUsuario"/>
     </form> 
