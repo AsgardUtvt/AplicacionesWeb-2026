@@ -11,7 +11,7 @@
     <h1>Generar usuario</h1>
 </head>
 <body>
-    <form action="usuarioview" method="get">
+    <form action="usuarioview" method="post">
         <h2>Datos de usuario</h2>
         <br>
         <input type="text" placeholder="Nombre" name="nombre" required />

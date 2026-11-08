@@ -1,11 +1,13 @@
 <?php
 namespace App\Modules\Usuario\Models;
 
+use App\DataBase\MySqlDataBase;
 use mysqli;
+
 class UsuarioModel {
 
-
-
+    private MySqlDataBase $dbInstance;
+    private mysqli $con ;
     /*Atributos usuario*/
     public    $usuario_name ;
     public    $usuario_paterno ;
@@ -24,20 +26,12 @@ class UsuarioModel {
     public    $id_estado;
     public    $id_tipo_usuario;
 
-    private $con;
-    public function __construct() {
-        $this->con = new mysqli(
-            "db",                       
-            "asgard",
-            "admin",                     
-            "un_grano_de_mostaza",       
-            3306
-        );
-
-        if ($this->con->connect_error) {
-            throw new \Exception("Error de conexión: " . $this->con->connect_error);
-        }
+    public function __construct()
+    {
+        $this->dbInstance = MySqlDataBase::getMySqlDataBaseInstance();
+        $this->con = $this->dbInstance->conectar();
     }
+
     public function insertarusuario() {
         $sql = "INSERT INTO usuario (
             usuario_name, usuario_paterno, usuario_materno, usuario_correo, usuario_password,

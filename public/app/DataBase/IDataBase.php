@@ -2,7 +2,7 @@
 
 namespace App\DataBase;
 
-use PDO;
+use mysqli;
 
 /**
  * Interface App\DataBase
@@ -10,20 +10,7 @@ use PDO;
  */
 interface IDataBase
 {
-    /**
-     * @param $dependencies
-     */
-    private  $conexion;
-
-    private string $host;
-    
-    private string $db;
-    
-    private string $user;
-
-    private string $pass;
-
-    public function conectar(): PDO;
+    public function conectar(): mysqli;
 
     public function desconectar(): void;
 }

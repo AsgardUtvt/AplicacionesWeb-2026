@@ -5,5 +5,8 @@
             "App\\Modules\\": "app/Modules/",
             "App\\Services\\": "app/Services/"
         }
+    },
+    "require-dev": {
+        "tyhpdef/vlucas-phpdotenv": "^5.7"
     }
 }

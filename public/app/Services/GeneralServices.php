@@ -1,5 +1,5 @@
 <?php 
-namespace App\Service;
+namespace App\Services;
 
 class GeneralServices{
 
@@ -18,6 +18,11 @@ class GeneralServices{
          Funcion que retorna un bool cuando se verifica la contraseña
          */
         return password_verify($password, $dbPassword) ? true :  false;
+    }
+
+    public static function validar_datos_login(string $email): bool {
+      
+      return true;  
     }
 }
 ?>

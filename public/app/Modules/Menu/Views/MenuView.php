@@ -438,9 +438,6 @@ namespace App\Modules\Menu\Views;
             <h1>Campaña Actual: Agua Potable</h1>
             <p>Haz clic en la flecha para expandir el menú. El contenido permanece fijo.</p>
         </section>
-        <section id="causas"><h2>Nuestras Causas</h2></section>
-        <section id="transparencia"><h2>Transparencia</h2></section>
-        <section id="contacto"><h2>Contacto</h2></section>
     </div>
 
     <script>

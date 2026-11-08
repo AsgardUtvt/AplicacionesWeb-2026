@@ -20,7 +20,7 @@
     </div>
     <div class="div-form">
         <form action="/auth/login/procesar" method="post">
-            <input type="text" placeholder="Usuario" name="nombre"/>
+            <input type="email" placeholder="Correo" name="email"/>
             <br>
             <input type="password" placeholder="Contraseña" name="password"/>
             <br>

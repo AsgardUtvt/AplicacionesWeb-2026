@@ -1,5 +1,5 @@
 <?php	
-namespace App\Modules\Voluntario\Controller;
+namespace App\Modules\Voluntario\Controllers;
 
 use App\Core\Controller;
 

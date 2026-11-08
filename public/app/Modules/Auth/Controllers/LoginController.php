@@ -4,7 +4,6 @@ namespace App\Modules\Auth\Controllers;
 use App\Core\Controller;
 use App\Modules\Auth\Models\LoginModel;
 use App\Modules\Usuario\Models\UsuarioModel;
-use App\Service;
 use App\Service\GeneralServices;
 
 const RECUPERAR = "LoginRecuperarCuentaView";
@@ -21,7 +20,7 @@ class LoginController extends Controller {
     }
 
     public function procesar() {
-        $user = $_POST['nombre'];
+        $user = $_POST['email'];
         $password = $_POST['password'];
 
         $model = new LoginModel();
@@ -51,26 +50,25 @@ class LoginController extends Controller {
     public function usuarioview(){
 
         $usuarioModel = new UsuarioModel();
-        $usuarioModel->usuario_name = $_GET['nombre'];
-        $usuarioModel->usuario_paterno = $_GET['paterno'];
-        $usuarioModel->usuario_materno = $_GET['materno'];
-        $usuarioModel->usuario_correo = $_GET['email'];
-        $usuarioModel->usuario_password = $_GET['password'];
-        $usuarioModel->usuario_localidad = $_GET['localidad'];
-        $usuarioModel->usuario_colonia = $_GET['colonia'];
-        $usuarioModel->usuario_cp = $_GET['codigoPostal'];
-        $usuarioModel->usuario_municipio = $_GET['municipio'];
-        $usuarioModel->usuario_calle_principal = $_GET['callePrincipal'];
-        $usuarioModel->usuario_calle_izquierda = $_GET['calleUno'];
-        $usuarioModel->usuario_calle_derecha = $_GET['calleDos'];
-        $usuarioModel->usuario_num_exterior = $_GET['numEx'];
-        $usuarioModel->usuario_num_interior = $_GET['numInt'];
+        $usuarioModel->usuario_name = $_POST['nombre'];
+        $usuarioModel->usuario_paterno = $_POST['paterno'];
+        $usuarioModel->usuario_materno = $_POST['materno'];
+        $usuarioModel->usuario_correo = $_POST['email'];
+        $usuarioModel->usuario_password = GeneralServices::PasswordHash($_POST['password']);
+        $usuarioModel->usuario_localidad = $_POST['localidad'];
+        $usuarioModel->usuario_colonia = $_POST['colonia'];
+        $usuarioModel->usuario_cp = $_POST['codigoPostal'];
+        $usuarioModel->usuario_municipio = $_POST['municipio'];
+        $usuarioModel->usuario_calle_principal = $_POST['callePrincipal'];
+        $usuarioModel->usuario_calle_izquierda = $_POST['calleUno'];
+        $usuarioModel->usuario_calle_derecha = $_POST['calleDos'];
+        $usuarioModel->usuario_num_exterior = $_POST['numEx'];
+        $usuarioModel->usuario_num_interior = $_POST['numInt'];
         $usuarioModel->id_estado= 1;
         $usuarioModel->id_tipo_usuario = 1;
         extract($usuarioModel->insertarusuario());
         if($resultado){
-            $this->view(USUARIO, ['datos_usuario' => $usuarioModel->consultar_datos($id_usuario), "id" => $id_usuario]);
-
+            $this->view(MENU, ['datos_usuario' => $usuarioModel->consultar_datos($id_usuario), "id" => $id_usuario], 0);
         }
         else{
             $this->index();
