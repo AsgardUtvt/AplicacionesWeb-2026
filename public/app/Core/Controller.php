@@ -5,6 +5,29 @@ class Controller {
     /*
      * Resive dos parametros el nombre del archivo y un arreglo de los parametros
 I    */
+    protected function viewBeta(string $viewName, array $data = [ "nada" => null ]){
+        if(str_contains($viewName, '\\')){
+            $parts = explode('\\', $viewName);
+            $moduleName = array_shift($parts);
+            $viewName = implode('/', $parts);
+        }else {
+            $parts = explode('\\', static::class);
+            $moduleName = $parts[2] ?? die("Erro namespace inesperado ". static::class );
+        }
+            $viewFile = $viewName;
+
+        if(!preg_match('#^[A-Za-z0-9_/-]+$#', $moduleName . $viewName)){
+            die("Nomber de la vista invalido " . $viewName);
+        }
+
+        $viewPath = __DIR__ . "/../Modules/{$moduleName}/Views/{$viewFile}.php";
+        if(!is_file($viewPath)){
+            die("La vista \' {$viewFile}.php\' no existe en el modulo \'{$moduleName}\'");
+        }
+        extract($data, EXTR_SKIP);
+        require $viewPath;
+
+    }
     protected function view(string $viewName, array $data = [], int $num = 1 ){
         /*
          *  
@@ -38,7 +61,6 @@ I    */
 
             $moduleName = $parts[0];
             $viewModuleName = $parts[1];
-
             $viewPath = __DIR__ . "/../Modules/{$moduleName}/Views/{$viewModuleName}.php";
 
             extract($data);

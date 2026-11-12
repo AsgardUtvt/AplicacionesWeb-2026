@@ -3,7 +3,9 @@
 namespace App\Core;
 
 class Router{
-
+    public function resolveDinam(string $url){
+    $requestUri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+    }
     public function resolve(string $url){
 
         $url = trim($url, '/');

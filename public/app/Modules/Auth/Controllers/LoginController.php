@@ -5,19 +5,24 @@ use App\Core\Controller;
 use App\Modules\Usuario\Models\UsuarioModel;
 use App\Services\GeneralServices;
 
-const RECUPERAR = "LoginRecuperarCuentaView";
-const LOGIN = "LoginView";
-const GENERAR = "LoginGenerarCuentaView";
-const USUARIO = "UsuarioView";
+
+const RECUPERAR = "Auth\LoginRecuperarCuentaView";
+const LOGIN = "Auth\LoginView";
+const GENERAR = "Auth\LoginGenerarCuentaView";
+const USUARIO = "Usuario\UsuarioView";
+const GENERAR_DONACION = "Donacion\DonacionView";
 const MENU = "Menu\MenuView";
 
 const VACIO = [ "nada" => null];
 class LoginController extends Controller {
 
     public function index(){
-        $this->view(LOGIN, ['titulo' => 'Iniciar Sesión']);
+        $this->viewBeta(LOGIN, ['titulo' => 'Iniciar Sesión']);
     }
 
+    public function menu() {
+        $this->viewBeta(MENU, VACIO, 0);
+    }
     public function procesar() {
         $user = $_POST['email'];
         $password = $_POST['password'];
@@ -27,10 +32,10 @@ class LoginController extends Controller {
 
         if ($resultado && $datos['usuario_password'] != null){
             if(GeneralServices::VerificatePasswordHash($password, $datos['usuario_password']))
-            $this->view(MENU, VACIO, 0);
+                $this->viewBeta(MENU, VACIO, 0);
 
         }else {
-            $this->view('LoginView', [
+            $this->viewBeta(LOGIN, [
                 'titulo'=> 'Iniciar sesión',
                 'error' => 'Usuario no encontrado'
             ]);
@@ -38,17 +43,17 @@ class LoginController extends Controller {
     }
 
     public function recuperarCuenta(){
-        $this->view( RECUPERAR, ['nada' => null]);
+        $this->viewBeta( RECUPERAR, ['nada' => null]);
     }
 
     public function generarCuenta(){
 
-        $this->view( GENERAR, VACIO);
+        $this->viewBeta( GENERAR, VACIO);
 
 
 
     }
-    public function usuarioview(){
+    public function usuarioviewBeta(){
 
         $usuarioModel = new UsuarioModel();
         $usuarioModel->usuario_name = $_POST['nombre'];
@@ -69,7 +74,7 @@ class LoginController extends Controller {
         $usuarioModel->id_tipo_usuario = 1;
         extract($usuarioModel->insertarusuario());
         if($resultado){
-            $this->view(MENU, ['datos_usuario' => $usuarioModel->consultar_datos($id_usuario), "id" => $id_usuario], 0);
+            $this->viewBeta(MENU, ['datos_usuario' => $usuarioModel->consultar_datos($id_usuario), "id" => $id_usuario], 0);
         }
         else{
             $this->index();
@@ -80,11 +85,14 @@ class LoginController extends Controller {
 
         if (GeneralServices::VerificatePasswordHash($usuario, $pass))
         {
-            $this->view(MENU, VACIO );
+            $this->viewBeta(MENU, VACIO );
         }
-        
+
     }
 
+    public function generar_donacion(){
+        $this->viewBeta(GENERAR_DONACION, VACIO, 0);
+    }
 }
 
 ?>
