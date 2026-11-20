@@ -1,4 +1,5 @@
-<?php 
+<?php
+echo "<pre>" . var_dump($datos_usuario) . "</pre>";
 $nombre = $datos_usuario['usuario_name'];
 $paterno = $datos_usuario['usuario_paterno'];
 $materno = $datos_usuario['usuario_materno'];

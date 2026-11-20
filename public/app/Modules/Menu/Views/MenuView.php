@@ -429,7 +429,9 @@ namespace App\Modules\Menu\Views;
                 <div class="user-name">SUPERDROY34</div>
                 <div class="user-plan">Donante Free</div>
             </div>
-            <button class="upgrade-btn" id="upgradeBtn">Upgrade</button>
+            <form action="eliminir_cuenta">
+            <input type="submit" placeholder="Eliminar" />
+            </form>
         </div>
     </aside>
 

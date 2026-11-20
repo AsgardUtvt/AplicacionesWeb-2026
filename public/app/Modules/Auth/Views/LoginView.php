@@ -1,6 +1,7 @@
 <?php
-
-
+namespace App\Core\Modules\Auth\Views\LoginView;
+use App\Services\ViewServic ;
+use App\Services\ViewService;
 
 ?>
 
@@ -10,15 +11,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio sesion</title>
-    <link rel="stylesheet" href="style/style-login/style.css"
+    <link rel="stylesheet" href="../../../../css/style-general.css" />
+    <link rel="stylesheet" href="../../../../css/login-style.css" />
 </head>
 <body>
-    <div class="container">
+<div class="padre">
     <h1>Un grano de mostaza</h1>
-    <div class="div-imagen">
-        Imagen
-    </div>
-    <div class="div-form">
+    <img src="../../../../assest/img/logo/UnGranoDeMostazavm.min.svg" width="200" height="200" />
         <form action="/auth/login/procesar" method="post">
             <input type="email" placeholder="Correo" name="email"/>
             <br>
@@ -26,13 +25,8 @@
             <br>
             <input type="submit" value="Iniciar sesion"/>
         </form>
-    </div>
-        <div class="bottomBtnLeft">
-            <a href="/auth/login/generarCuenta">Generar cuenta</a>
-        </div>
-        <div class="bottomBtnRight">
+        <a action='<?php ViewService::require_view("Auth\LoginGenerarCuentaView") ?>'>Generar cuenta</a>
         <a href="/auth/login/recuperarCuenta">Olvide mi contraseña</a>
-        </div>
-    </div>
+</div>
 </body>
 </html>

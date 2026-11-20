@@ -1,6 +1,7 @@
 <?php
 namespace App\Core;
 
+
 class Controller {
     /*
      * Resive dos parametros el nombre del archivo y un arreglo de los parametros
@@ -12,14 +13,13 @@ I    */
             $viewName = implode('/', $parts);
         }else {
             $parts = explode('\\', static::class);
-            $moduleName = $parts[2] ?? die("Erro namespace inesperado ". static::class );
+            $moduleName = $parts[2] ?? die("Error namespace inesperado ". static::class );
         }
             $viewFile = $viewName;
-
+        // ASBCD abcd
         if(!preg_match('#^[A-Za-z0-9_/-]+$#', $moduleName . $viewName)){
-            die("Nomber de la vista invalido " . $viewName);
+            die("Nombre de la vista invalido " . $viewName);
         }
-
         $viewPath = __DIR__ . "/../Modules/{$moduleName}/Views/{$viewFile}.php";
         if(!is_file($viewPath)){
             die("La vista \' {$viewFile}.php\' no existe en el modulo \'{$moduleName}\'");

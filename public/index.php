@@ -1,15 +1,13 @@
 <?php
-use App\Core\Router;
-use Dotenv\Dotenv;
 require_once(__DIR__ . '/vendor/autoload.php');
+use App\Services\ViewService;
+use Dotenv\Dotenv;
 // Cargar el Dotenv
+const LOGIN = "Auth\LoginView";
 $dotenv = Dotenv::createMutable(__DIR__);
 $dotenv->load();
-// Pues lo de la url
-$url = $_GET['url'] ?? '';
-$url = trim($url, '/');
-$router = new Router();
-$router->resolve($url);
+const DIR = __DIR__ . "/app/Modules/";
 
+
+ViewService::require_once_view_test();
 ?>
-

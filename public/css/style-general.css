@@ -22,11 +22,6 @@ head{
 }
 
 
-/*Estilos para los botones*/
-
-/* ==========================================================================
-1. ESTILO BASE PARA TODOS LOS BOTONES
-========================================================================== */
     button,
     input[type="submit"],
     input[type="button"],
@@ -67,11 +62,7 @@ head{
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    /* ==========================================================================
-    2. VARIANTES DE COLOR SEGÚN EL TIPO (TYPE)
-    ========================================================================== */
 
-    /* --- BOTÓN DE ENVÍO (type="submit") -> AZUL --- */
     button[type="submit"],
     input[type="submit"] {
         background-color: #e8df8d;
@@ -82,7 +73,6 @@ head{
         background-color: #e8df8d;
     }
 
-    /* --- BOTÓN DE REINICIO (type="reset") -> ROJO --- */
     button[type="reset"],
     input[type="reset"] {
         background-color: #dc3545;
@@ -93,7 +83,6 @@ head{
         background-color: #bd2130;
     }
 
-    /* --- BOTÓN GENÉRICO (type="button") -> GRIS --- */
     button[type="button"],
     input[type="button"] {
         background-color: #6c757d;
@@ -104,9 +93,6 @@ head{
         background-color: #545b62;
     }
 
-    /* ==========================================================================
-    3. CLASE PARA LA ONDA EXPANSIVA (COMPLEMENTO DE JAVASCRIPT)
-    ========================================================================== */
     .onda-ripple {
         position: absolute;
         background: rgba(255, 255, 255, 0.4);
@@ -125,9 +111,6 @@ head{
 
 
 
-/* ==========================================================================
-   ESTILOS GENERALES Y FUENTE
-   ========================================================================== */
 .input-contenedor {
   position: relative;
   margin: var(--margin) 0;
@@ -145,7 +128,6 @@ head{
   color: #333333;
 }
 
-/* La etiqueta por defecto inicia flotando en el centro del input */
 .input-contenedor label {
   position: absolute;
   left: 12px;
@@ -159,22 +141,16 @@ head{
   padding: 0 4px;
 }
 
-/* ==========================================================================
-   ESTILO 1: CONTORNEADO (Outline - Imágenes 1 y 2)
-   ========================================================================== */
 .input-outline input {
   border: 1px solid #7a7a7a;
   border-radius: 5px;
   background-color: transparent;
 }
-
-/* Cuando se hace clic (focus) o tiene texto escrito (no muestra placeholder) */
 .input-outline input:focus,
 .input-outline input:not(:placeholder-shown) {
   border: 2px solid #556b2f; /* Color verde oliva de tu imagen */
 }
 
-/* Animación de la etiqueta flotando hacia el borde superior */
 .input-outline input:focus ~ label,
 .input-outline input:not(:placeholder-shown) ~ label {
   top: 0;
@@ -183,9 +159,6 @@ head{
   background-color: #fff9e3; /* Fondo que tapa la línea del borde */
 }
 
-/* ==========================================================================
-   ESTILO 2: RELLENO (Filled - Imágenes 3 y 4)
-   ========================================================================== */
 .input-filled input {
   border: none;
   border-bottom: 1px solid #7a7a7a;
@@ -200,7 +173,6 @@ head{
   border-bottom: 2px solid #556b2f;
 }
 
-/* Animación de la etiqueta subiendo dentro del contenedor relleno */
 .input-filled input:focus ~ label,
 .input-filled input:not(:placeholder-shown) ~ label {
   top: 14px;
@@ -209,22 +181,16 @@ head{
 }
 
 
-/* 1. Oculta las flechas en Chrome, Safari, Edge y Opera */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* 2. Oculta las flechas en Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* ==========================================================================
-   ESTILO PARA LOS <A>
-   ========================================================================== */
-/*Estilo 1*/
 
 .link-material {
   color: #556b2f; /* El color verde oliva de tus inputs */
@@ -234,8 +200,6 @@ input[type="number"] {
   font-weight: bold;
   padding-bottom: 2px;
 }
-
-/* Creamos la línea invisible en el centro */
 .link-material::after {
   content: '';
   position: absolute;
@@ -249,12 +213,10 @@ input[type="number"] {
   transition: transform 0.3s ease-out;
 }
 
-/* Al pasar el mouse, la línea se expande al 100% */
 .link-material:hover::after {
   transform: scaleX(1);
 }
 
-/*Estilo 2*/
 
 .link-resaltado {
   color: #000000;
@@ -265,12 +227,10 @@ input[type="number"] {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Al pasar el mouse, la línea sube y cubre el fondo */
 .link-resaltado:hover {
   background-color: #fcf29e;
   box-shadow: inset 0 -20px 0 #fcf29e;
 }
-/*Estilo 3*/
 
 .link-fantasma {
   color: #6c757d; /* Gris de tus botones secundarios */
@@ -287,7 +247,6 @@ input[type="number"] {
   border-color: #6c757d;
   background-color: rgba(108, 117, 125, 0.05); /* Fondo gris casi invisible */
 }
-/*Estilo 4*/
 
 .link-flecha {
   color: #007bff; /* Azul de tus botones principales */
@@ -304,7 +263,6 @@ input[type="number"] {
   transition: transform 0.2s ease;
 }
 
-/* La flecha se mueve a la derecha al hacer hover */
 .link-flecha:hover::after {
   transform: translateX(5px);
 }

@@ -1,59 +1,38 @@
 <?php
 namespace App\Modules\Auth\Controllers;
 
-use App\Core\Controller;
 use App\Modules\Usuario\Models\UsuarioModel;
 use App\Services\GeneralServices;
 
 
-const RECUPERAR = "Auth\LoginRecuperarCuentaView";
-const LOGIN = "Auth\LoginView";
-const GENERAR = "Auth\LoginGenerarCuentaView";
-const USUARIO = "Usuario\UsuarioView";
-const GENERAR_DONACION = "Donacion\DonacionView";
-const MENU = "Menu\MenuView";
+class LoginController {
 
-const VACIO = [ "nada" => null];
-class LoginController extends Controller {
-
-    public function index(){
-        $this->viewBeta(LOGIN, ['titulo' => 'Iniciar Sesión']);
-    }
-
-    public function menu() {
-        $this->viewBeta(MENU, VACIO, 0);
-    }
     public function procesar() {
         $user = $_POST['email'];
         $password = $_POST['password'];
 
         $usuarioModel = new UsuarioModel();
         extract($usuarioModel->comprobar_usuario($user));
+        var_dump($usuarioModel->comprobar_usuario($user));
 
         if ($resultado && $datos['usuario_password'] != null){
-            if(GeneralServices::VerificatePasswordHash($password, $datos['usuario_password']))
-                $this->viewBeta(MENU, VACIO, 0);
+            echo "Fumcion VerificatePasswordHash " . GeneralServices::VerificatePasswordHash($password, $datos['usuario_password']);
+
+            echo "Varaible de session: " . $_SESSION['id_global'];
+            if(password_verify($password, $datos['usuario_password'])){
+
+            }else{
+
+            }
 
         }else {
-            $this->viewBeta(LOGIN, [
-                'titulo'=> 'Iniciar sesión',
-                'error' => 'Usuario no encontrado'
-            ]);
         }
+        echo "Estoy en procesar";
+        $_POST['eamil'] = "";
+        $_POST['password'] = "";
     }
 
-    public function recuperarCuenta(){
-        $this->viewBeta( RECUPERAR, ['nada' => null]);
-    }
-
-    public function generarCuenta(){
-
-        $this->viewBeta( GENERAR, VACIO);
-
-
-
-    }
-    public function usuarioviewBeta(){
+    public function usuarioview(){
 
         $usuarioModel = new UsuarioModel();
         $usuarioModel->usuario_name = $_POST['nombre'];
@@ -74,25 +53,12 @@ class LoginController extends Controller {
         $usuarioModel->id_tipo_usuario = 1;
         extract($usuarioModel->insertarusuario());
         if($resultado){
-            $this->viewBeta(MENU, ['datos_usuario' => $usuarioModel->consultar_datos($id_usuario), "id" => $id_usuario], 0);
         }
         else{
-            $this->index();
         }
     }
 
-    public function validar_usuario_pass(string $usuario, string $pass) {
 
-        if (GeneralServices::VerificatePasswordHash($usuario, $pass))
-        {
-            $this->viewBeta(MENU, VACIO );
-        }
-
-    }
-
-    public function generar_donacion(){
-        $this->viewBeta(GENERAR_DONACION, VACIO, 0);
-    }
 }
 
-?>
+

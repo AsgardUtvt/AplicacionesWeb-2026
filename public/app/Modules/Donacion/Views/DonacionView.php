@@ -15,6 +15,10 @@
 </head>
 <body>
     <h1>Esto es para generar una donacion</h1>
+        <?= "el id global " .$_SESSION['id_global'] ?>
+            <form action="eliminir_cuenta" />
+            <input type="submit" placeholder="Eliminar" />
+            </form>
     <form action="menu_genear_donacion" method="post">
         <br>
         <label>Titulo</label> 

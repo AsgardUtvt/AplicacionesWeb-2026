@@ -3,9 +3,16 @@
 namespace App\Core;
 
 class Router{
-    public function resolveDinam(string $url){
-    $requestUri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+/*    public function resolveDinam(string $url){
+        $requestUri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH, '/');
+        $segments = explode('/', $requestUri);
+
+        $moduleName = ucfirst($segments[0] ?? 'Index');
+        $coso;
+
+
     }
+ */
     public function resolve(string $url){
 
         $url = trim($url, '/');
@@ -15,6 +22,7 @@ class Router{
         }
 
         $parts = explode('/', $url);
+        
         $module = ucfirst($parts[0] ?? 'Auth');
         $controller =  ucfirst($parts[1]."Controller" ?? 'LoginController ' ); 
         $method =  $parts[2] ?? 'index';

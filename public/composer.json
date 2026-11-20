@@ -4,10 +4,14 @@
             "App\\Core\\": "app/Core/",
             "App\\Modules\\": "app/Modules/",
             "App\\Services\\": "app/Services/",
-            "App\\DataBase\\": "app/DataBase"
+            "App\\DataBase\\": "app/DataBase/",
+            "App\\GlobalSingleton\\" : "app/GlobalSingleton"
         }
     },
     "require-dev": {
         "tyhpdef/vlucas-phpdotenv": "^5.7"
+    },
+    "require": {
+        "symfony/mailer": "^8.1"
     }
 }

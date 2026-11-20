@@ -7,7 +7,7 @@ use mysqli;
 class UsuarioModel {
 
     private MySqlDataBase $dbInstance;
-    private mysqli $con ;
+    private mysqli $con;
     /*Atributos usuario*/
     public    $usuario_name ;
     public    $usuario_paterno ;
@@ -120,7 +120,7 @@ class UsuarioModel {
     }
 
     public function comprobar_usuario(string $email): array {
-        $sql = "SELECT u.usuario_password FROM usuario u WHERE u.usuario_correo = ?";
+        $sql = "SELECT u.usuario_password, u.usuario_name, u.id_usuario, u.usuario_correo  FROM usuario u WHERE u.usuario_correo = ?";
         $stmt = $this->con->prepare($sql);
         if($stmt){
             $stmt->bind_param("s", $email);
@@ -128,9 +128,22 @@ class UsuarioModel {
             $resultado = $stmt->get_result();
             $result_array = $resultado->fetch_assoc();
             $stmt->close();
-            return ["resultado" => true, "datos" => $result_array];
+            return ["resultado" => true, "datos"=> $result_array];
         }else {
             return ["resultado" => false, "datos" => null];
+        }
+
+    }
+
+    public function eliminar_usuario(int $id): bool {
+        $sql = "DELETE FROM usuario WHERE u.id_usuario = ?";
+        $stmt = $this->con->prepare($sql);
+        if($stmt){
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            return true;
+        }else {
+            return false;
         }
     }
 }
