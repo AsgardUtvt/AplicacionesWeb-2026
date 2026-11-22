@@ -1,4 +1,13 @@
+<?php
+require_once __DIR__ . '/../../../../vendor/autoload.php';
+use App\Services\ViewService;
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+echo ViewService::string_path('recuperar_cuenta');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +16,7 @@
     <title>Recuepar cuenta</title>
 </head>
 <body>
-    <form action="./datos-recuperar-cuenta.php" method="get">
+<form action="./LoginDatosRecueparCuenta.php" method="get">
         <label> Ingresa tu correo electronico </label>
         <br>
         <input type="email" placeholder="Email: ej. ajemplo@gmail.com" name="email" required >

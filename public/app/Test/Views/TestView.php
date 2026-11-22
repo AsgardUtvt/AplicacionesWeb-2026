@@ -1,5 +1,9 @@
 <?php
 use App\Services\ViewService;
+
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 echo ViewService::string_path('login');
 echo "<br>";
 echo ViewService::string_path('recuperar_cuenta');
@@ -27,7 +31,7 @@ echo "<br>";
 <br>
 <a href="<?= ViewService::string_path('generar_cuenta')?>">Generar cuenta</a>  
 <br>
-<a href="<?= ViewService::string_path('generar_donacion')?>">Generar cuenta</a>  
+<a href="<?= ViewService::string_path('generar_donacion')?>">Generar donanación</a>  
 <br>
 </body>
 </html>

@@ -1,7 +1,6 @@
 <?php
 namespace App\Services;
 
-use Symfony\Component\Mailer\Transport\RoundRobinTransport;
 
 class ViewService{
     public static $rutas = [
@@ -9,6 +8,7 @@ class ViewService{
         'login' => 'Auth/LoginView',
         'generar_cuenta' => 'Auth/LoginGenerarCuentaView',
         'recuperar_cuenta' => 'Auth/LoginRecuperarCuentaView',
+        'datos_recuperar_cuenta' => 'Auth/LoginDatosRecuperarCuenta',
 
         //Donacion
         'generar_donacion' => 'Donacion/DonacionGenerarView'

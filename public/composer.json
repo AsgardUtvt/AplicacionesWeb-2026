@@ -5,7 +5,7 @@
             "App\\Modules\\": "app/Modules/",
             "App\\Services\\": "app/Services/",
             "App\\DataBase\\": "app/DataBase/",
-            "App\\GlobalSingleton\\" : "app/GlobalSingleton"
+            "App\\GlobalSingleton\\" : "app/GlobalSingleton/"
         }
     },
     "require-dev": {
