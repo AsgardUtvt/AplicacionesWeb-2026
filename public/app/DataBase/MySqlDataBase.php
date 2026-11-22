@@ -2,6 +2,7 @@
 namespace App\DataBase;
 
 use mysqli;
+use App\Interfaces\IDataBase;
 
 class MySqlDataBase implements IDataBase {
 

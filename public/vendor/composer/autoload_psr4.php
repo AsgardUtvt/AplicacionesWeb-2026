@@ -26,6 +26,7 @@ return array(
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/src'),
     'App\\Services\\' => array($baseDir . '/app/Services'),
     'App\\Modules\\' => array($baseDir . '/app/Modules'),
+    'App\\Interfaces\\' => array($baseDir . '/app/Interfaces'),
     'App\\GlobalSingleton\\' => array($baseDir . '/app/GlobalSingleton'),
     'App\\DataBase\\' => array($baseDir . '/app/DataBase'),
     'App\\Core\\' => array($baseDir . '/app/Core'),
