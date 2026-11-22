@@ -135,46 +135,47 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         ),
         'App\\Services\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app/Services',
+            0 => __DIR__ . '/../..' . '/App/Services',
         ),
         'App\\Modules\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app/Modules',
+            0 => __DIR__ . '/../..' . '/App/Modules',
         ),
         'App\\Interfaces\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app/Interfaces',
+            0 => __DIR__ . '/../..' . '/App/Interfaces',
         ),
         'App\\GlobalSingleton\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app/GlobalSingleton',
+            0 => __DIR__ . '/../..' . '/App/GlobalSingleton',
         ),
         'App\\DataBase\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app/DataBase',
+            0 => __DIR__ . '/../..' . '/App/DataBase',
         ),
         'App\\Core\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app/Core',
+            0 => __DIR__ . '/../..' . '/App/Core',
         ),
     );
 
     public static $classMap = array (
-        'App\\Core\\Controller' => __DIR__ . '/../..' . '/app/Core/Controller.php',
-        'App\\Core\\Router' => __DIR__ . '/../..' . '/app/Core/Router.php',
-        'App\\DataBase\\MySqlDataBase' => __DIR__ . '/../..' . '/app/DataBase/MySqlDataBase.php',
-        'App\\GlobalSingleton\\GlobalSingleton' => __DIR__ . '/../..' . '/app/GlobalSingleton/GlobalSingleton.php',
-        'App\\Interfaces\\IDataBase' => __DIR__ . '/../..' . '/app/Interfaces/IDataBase.php',
-        'App\\Modules\\Auth\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Modules/Auth/Controllers/LoginController.php',
-        'App\\Modules\\Auth\\Enums\\View' => __DIR__ . '/../..' . '/app/Modules/Auth/Enums/View.php',
-        'App\\Modules\\Auth\\Models\\LoginModel' => __DIR__ . '/../..' . '/app/Modules/Auth/Models/LoginModel.php',
-        'App\\Modules\\Donacion\\Controllers\\DonacionController' => __DIR__ . '/../..' . '/app/Modules/Donacion/Controllers/DonacionController.php',
-        'App\\Modules\\Donacion\\Models\\DonacionModel' => __DIR__ . '/../..' . '/app/Modules/Donacion/Models/DonacionModel.php',
-        'App\\Modules\\Usuario\\Models\\UsuarioModel' => __DIR__ . '/../..' . '/app/Modules/Usuario/Models/UsuarioModel.php',
-        'App\\Modules\\Voluntario\\Controllers\\VoluntarioController' => __DIR__ . '/../..' . '/app/Modules/Voluntario/Controllers/VoluntarioController.php',
-        'App\\Services\\GeneralServices' => __DIR__ . '/../..' . '/app/Services/GeneralServices.php',
-        'App\\Services\\SingletonUsuario' => __DIR__ . '/../..' . '/app/Services/SingletonUsuario.php',
-        'App\\Services\\ViewService' => __DIR__ . '/../..' . '/app/Services/ViewService.php',
+        'App\\Core\\Controller' => __DIR__ . '/../..' . '/App/Core/Controller.php',
+        'App\\Core\\Router' => __DIR__ . '/../..' . '/App/Core/Router.php',
+        'App\\DataBase\\MySqlDataBase' => __DIR__ . '/../..' . '/App/DataBase/MySqlDataBase.php',
+        'App\\GlobalSingleton\\GlobalSingleton' => __DIR__ . '/../..' . '/App/GlobalSingleton/GlobalSingleton.php',
+        'App\\Interfaces\\IDataBase' => __DIR__ . '/../..' . '/App/Interfaces/IDataBase.php',
+        'App\\Modules\\Auth\\Controllers\\LoginController' => __DIR__ . '/../..' . '/App/Modules/Auth/Controllers/LoginController.php',
+        'App\\Modules\\Auth\\Enums\\View' => __DIR__ . '/../..' . '/App/Modules/Auth/Enums/View.php',
+        'App\\Modules\\Auth\\Models\\LoginModel' => __DIR__ . '/../..' . '/App/Modules/Auth/Models/LoginModel.php',
+        'App\\Modules\\Donacion\\Controllers\\DonacionController' => __DIR__ . '/../..' . '/App/Modules/Donacion/Controllers/DonacionController.php',
+        'App\\Modules\\Donacion\\Models\\DonacionModel' => __DIR__ . '/../..' . '/App/Modules/Donacion/Models/DonacionModel.php',
+        'App\\Modules\\Usuario\\Models\\UsuarioModel' => __DIR__ . '/../..' . '/App/Modules/Usuario/Models/UsuarioModel.php',
+        'App\\Modules\\Voluntario\\Controllers\\VoluntarioController' => __DIR__ . '/../..' . '/App/Modules/Voluntario/Controllers/VoluntarioController.php',
+        'App\\Services\\GeneralServices' => __DIR__ . '/../..' . '/App/Services/GeneralServices.php',
+        'App\\Services\\SenderMailRecuperacionService' => __DIR__ . '/../..' . '/App/Services/SenderMailRecuperacionService.php',
+        'App\\Services\\SingletonUsuario' => __DIR__ . '/../..' . '/App/Services/SingletonUsuario.php',
+        'App\\Services\\ViewService' => __DIR__ . '/../..' . '/App/Services/ViewService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Doctrine\\Common\\Lexer\\AbstractLexer' => __DIR__ . '/..' . '/doctrine/lexer/src/AbstractLexer.php',

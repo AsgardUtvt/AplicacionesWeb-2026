@@ -8,7 +8,7 @@ use mysqli;
  * Interface App\DataBase
  * @author yourname
  */
-interface IDataBase
+interface DataBaseInterface
 {
     public function conectar(): mysqli;
 

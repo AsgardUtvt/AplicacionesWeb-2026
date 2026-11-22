@@ -2,9 +2,9 @@
 namespace App\DataBase;
 
 use mysqli;
-use App\Interfaces\IDataBase;
+use App\Interfaces\DataBaseInterface;
 
-class MySqlDataBase implements IDataBase {
+class MySqlDataBase implements DataBaseInterface {
 
     private string $host;
     private string $db ;
