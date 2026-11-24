@@ -23,6 +23,7 @@ class GlobalSingleton {
     }
 
     public static function getInstance(): self {
+        
         if(self::$instance === null){
             self::$instance = new self();
         }

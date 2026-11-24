@@ -1,7 +1,12 @@
 <?php
 namespace App\Core\Modules\Auth\Views\LoginView;
-use App\Services\ViewServic ;
+
 use App\Services\ViewService;
+
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+echo ViewService::string_path('generar_cuenta');
 
 ?>
 
@@ -24,9 +29,9 @@ use App\Services\ViewService;
             <input type="password" placeholder="Contraseña" name="password"/>
             <br>
             <input type="submit" value="Iniciar sesion"/>
+            <a href="<?= ViewService::string_path('generar_cuenta') ?>">Generar cuenta</a>
+            <a href="<?= ViewService::string_path('recuperar_cuenta') ?>">Olvide mi contraseña</a>
         </form>
-        <a action='<?php ViewService::require_view("Auth\LoginGenerarCuentaView") ?>'>Generar cuenta</a>
-        <a href="/auth/login/recuperarCuenta">Olvide mi contraseña</a>
 </div>
 </body>
 </html>

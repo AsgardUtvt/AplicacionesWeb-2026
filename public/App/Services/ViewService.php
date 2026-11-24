@@ -25,7 +25,7 @@ class ViewService{
         $dir = __DIR__ . "/../Modules/$module/Views/$view.php";
 
         if(file_exists($dir)){
-            return "/app/Modules/$module/Views/$view.php";
+            return "/App/Modules/$module/Views/$view.php";
         }else{
             die('vista no valida' . $dir); 
         }
