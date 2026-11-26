@@ -1,0 +1,44 @@
+.tarjeta {
+    border: 5px solid #E1D0A2;
+    width: 100%;
+    float: center;
+    height: 300px;
+}
+
+.bottomBtnLeft {
+    border: 1px solid black;
+    border-radius: 20px;
+    float: left;
+    width: 125px;
+}
+
+.bottomBtnRight {
+    border: 1px solid black;
+    border-radius: 20px;
+    float: right;
+    width: 50px ;
+
+}
+
+
+/* Título principal */
+.titulo-principal {
+    font-size: 38px;
+    color: #4C386B;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Título de cada campaña */
+.titulo-tarjeta {
+    font-size: 20px;
+    color: #8B0000;
+    text-align: left;
+}
+
+/* Título de la cantidad recaudada */
+.titulo-recaudacion {
+    font-size: 16px;
+    color: #75CF54;
+    font-weight: normal;
+}
