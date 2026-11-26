@@ -1,5 +1,11 @@
 <?php
 
+use App\Services\ViewService;
+
+if(isset($_POST['generar']))
+{
+    ViewService::require_view("/menu/menu-view");
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +17,7 @@
     <h1>Generar usuario</h1>
 </head>
 <body>
-    <form action="usuarioview" method="post">
+    <form method="post">
         <h2>Datos de usuario</h2>
         <br>
         <input type="text" placeholder="Nombre" name="nombre" required />
@@ -46,7 +52,7 @@
         <br>
         <input type="text" placeholder="Numero interior" name="numInt"/>
         <br>
-        <input type="submit" value="Generar usuario" id="generarUsuario"/>
+        <input type="submit" value="Generar usuario" id="generarUsuario" name="generar"/>
     </form> 
 </body>
 </html>

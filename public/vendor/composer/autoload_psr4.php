@@ -24,10 +24,13 @@ return array(
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/src'),
+    'App\\Transports\\' => array($baseDir . '/App/Transports'),
     'App\\Services\\' => array($baseDir . '/App/Services'),
     'App\\Modules\\' => array($baseDir . '/App/Modules'),
     'App\\Interfaces\\' => array($baseDir . '/App/Interfaces'),
     'App\\GlobalSingleton\\' => array($baseDir . '/App/GlobalSingleton'),
+    'App\\Factories\\' => array($baseDir . '/App/Factories'),
     'App\\DataBase\\' => array($baseDir . '/App/DataBase'),
+    'App\\DTOs\\' => array($baseDir . '/App/DTOs'),
     'App\\Core\\' => array($baseDir . '/App/Core'),
 );

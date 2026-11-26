@@ -7,7 +7,7 @@ class EmailMessageDTO {
 
 
     public function __construct(
-        private readonly string $from = trim((string) (getenv('EMAIL_USER') ?: $_ENV['EMAIL_USER'] ?? ''), " \t\n\r\0\x0B\"'"),
+        private readonly string $from,
         private readonly string $to,
         private readonly string $subject,
         private readonly string $body
@@ -32,7 +32,7 @@ class EmailMessageDTO {
         }
     }
 
-    public function getFrom(): string { return $this->from;}
+    public function getFrom(): string { return $this->from ?? trim((string) (getenv('EMAIL_USER') ? : $_ENV['EMAIL_USER'] ?? ''), " \t\n\r\0\x0B\"'");}
     public function getTo(): string { return $this->to;}
     public function getSubject(): string { return $this->subject;}
     public function getBody(): string { return $this->body;}

@@ -2,6 +2,7 @@
 namespace App\Modules\Usuario\Models;
 
 use App\DataBase\MySqlDataBase;
+use App\Services\GeneralServices;
 use mysqli;
 
 class UsuarioModel {
@@ -120,7 +121,7 @@ class UsuarioModel {
     }
 
     public function comprobar_usuario(string $email): array {
-        $sql = "SELECT u.usuario_password, u.usuario_name, u.id_usuario, u.usuario_correo  FROM usuario u WHERE u.usuario_correo = ?";
+        $sql = "SELECT u.usuario_password AS pass, u.usuario_name, u.id_usuario, u.usuario_correo  FROM usuario u WHERE BINARY u.usuario_correo = ?";
         $stmt = $this->con->prepare($sql);
         if($stmt){
             $stmt->bind_param("s", $email);
@@ -145,6 +146,14 @@ class UsuarioModel {
         }else {
             return false;
         }
+    }
+
+    public function cambiarContrasena(string $password, string $email){
+        $pass_hash = GeneralServices::PasswordHash($password);
+        $sql = "UPDATE usuario SET usuario.usuario_password = ? WHERE BINARY usuario.usuario_correo = ?;";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param('ss', $pass_hash, $email);
+        return $stmt->execute();
     }
 }
 

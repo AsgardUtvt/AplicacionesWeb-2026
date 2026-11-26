@@ -51,11 +51,14 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         ),
         'A' =>
         array (
+            'App\\Transports\\' => 15,
             'App\\Services\\' => 13,
             'App\\Modules\\' => 12,
             'App\\Interfaces\\' => 15,
             'App\\GlobalSingleton\\' => 20,
+            'App\\Factories\\' => 14,
             'App\\DataBase\\' => 13,
+            'App\\DTOs\\' => 9,
             'App\\Core\\' => 9,
         ),
     );
@@ -133,6 +136,10 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         array (
             0 => __DIR__ . '/..' . '/doctrine/lexer/src',
         ),
+        'App\\Transports\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/App/Transports',
+        ),
         'App\\Services\\' =>
         array (
             0 => __DIR__ . '/../..' . '/App/Services',
@@ -149,9 +156,17 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         array (
             0 => __DIR__ . '/../..' . '/App/GlobalSingleton',
         ),
+        'App\\Factories\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/App/Factories',
+        ),
         'App\\DataBase\\' =>
         array (
             0 => __DIR__ . '/../..' . '/App/DataBase',
+        ),
+        'App\\DTOs\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/App/DTOs',
         ),
         'App\\Core\\' =>
         array (
@@ -162,7 +177,9 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
     public static $classMap = array (
         'App\\Core\\Controller' => __DIR__ . '/../..' . '/App/Core/Controller.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/App/Core/Router.php',
+        'App\\DTOs\\EmailMessageDTO' => __DIR__ . '/../..' . '/App/DTOs/EmailMessageDTO.php',
         'App\\DataBase\\MySqlDataBase' => __DIR__ . '/../..' . '/App/DataBase/MySqlDataBase.php',
+        'App\\Factories\\MeilerFactory' => __DIR__ . '/../..' . '/App/Factories/MeilerFactory.php',
         'App\\GlobalSingleton\\GlobalSingleton' => __DIR__ . '/../..' . '/App/GlobalSingleton/GlobalSingleton.php',
         'App\\Interfaces\\DataBaseInterface' => __DIR__ . '/../..' . '/App/Interfaces/DataBaseInterface.php',
         'App\\Interfaces\\SenderMessagesInterface' => __DIR__ . '/../..' . '/App/Interfaces/SenderMessagesInterface.php',
@@ -178,6 +195,7 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         'App\\Services\\MessageService' => __DIR__ . '/../..' . '/App/Services/MessageService.php',
         'App\\Services\\SingletonUsuario' => __DIR__ . '/../..' . '/App/Services/SingletonUsuario.php',
         'App\\Services\\ViewService' => __DIR__ . '/../..' . '/App/Services/ViewService.php',
+        'App\\Transports\\SmtpMailer' => __DIR__ . '/../..' . '/App/Transports/SmtpMailer.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Doctrine\\Common\\Lexer\\AbstractLexer' => __DIR__ . '/..' . '/doctrine/lexer/src/AbstractLexer.php',

@@ -8,7 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Core\\Controller' => $baseDir . '/App/Core/Controller.php',
     'App\\Core\\Router' => $baseDir . '/App/Core/Router.php',
+    'App\\DTOs\\EmailMessageDTO' => $baseDir . '/App/DTOs/EmailMessageDTO.php',
     'App\\DataBase\\MySqlDataBase' => $baseDir . '/App/DataBase/MySqlDataBase.php',
+    'App\\Factories\\MeilerFactory' => $baseDir . '/App/Factories/MeilerFactory.php',
     'App\\GlobalSingleton\\GlobalSingleton' => $baseDir . '/App/GlobalSingleton/GlobalSingleton.php',
     'App\\Interfaces\\DataBaseInterface' => $baseDir . '/App/Interfaces/DataBaseInterface.php',
     'App\\Interfaces\\SenderMessagesInterface' => $baseDir . '/App/Interfaces/SenderMessagesInterface.php',
@@ -24,6 +26,7 @@ return array(
     'App\\Services\\MessageService' => $baseDir . '/App/Services/MessageService.php',
     'App\\Services\\SingletonUsuario' => $baseDir . '/App/Services/SingletonUsuario.php',
     'App\\Services\\ViewService' => $baseDir . '/App/Services/ViewService.php',
+    'App\\Transports\\SmtpMailer' => $baseDir . '/App/Transports/SmtpMailer.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Doctrine\\Common\\Lexer\\AbstractLexer' => $vendorDir . '/doctrine/lexer/src/AbstractLexer.php',

@@ -5,7 +5,8 @@ use App\DTOs\EmailMessageDTO;
 use App\Factories\MeilerFactory;
 
 class MessageService {
-    public static function generarMessageAndSend(readonly  string $from,readonly  string $to,readonly  string $subjet,readonly  string $body) {
+    public static function generarMessageAndSend(string $from, string $to, string $subjet, string $body) {
+
         $factory = new MeilerFactory();
         $transport = $factory->create("smtp");
 

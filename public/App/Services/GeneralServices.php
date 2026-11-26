@@ -17,11 +17,7 @@ class GeneralServices{
         /*
          Funcion que retorna un bool cuando se verifica la contraseña
          */
-        echo $password;
-        echo "<br>";
-        echo $dbPassword;
-        echo "Aqui debe de haber algo " .password_verify($password, $dbPassword);
-        return password_verify($password, $dbPassword) ? true : false ;
+        return password_verify($password, $dbPassword);
     }
 
     public static function validar_datos_login(string $email): bool {

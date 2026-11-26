@@ -6,7 +6,11 @@
             "App\\Services\\": "App/Services/",
             "App\\DataBase\\": "App/DataBase/",
             "App\\GlobalSingleton\\" : "App/GlobalSingleton/",
-            "App\\Interfaces\\" : "App/Interfaces/"
+            "App\\Interfaces\\" : "App/Interfaces/",
+            "App\\Factories\\" : "App/Factories",
+            "App\\Transports\\" : "App/Transports",
+            "App\\DTOs\\" : "App/DTOs"
+
         }
     },
     "require-dev": {

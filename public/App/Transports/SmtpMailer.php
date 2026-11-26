@@ -1,5 +1,5 @@
 <?php
-namespace App\Tranport ;
+namespace App\Transports;
 
 use App\Interfaces\SenderMessagesInterface;
 use App\DTOs\EmailMessageDTO;
@@ -18,11 +18,16 @@ class SmtpMailer implements SenderMessagesInterface {
     {
         $user = trim((string) (getenv('EMAIL_USER') ?: $_ENV['EMAIL_USER'] ?? ''));
         $pass = trim((string) (getenv('EMAIL_PASS') ?: $_ENV['EMAIL_PASS'] ?? ''));
+        echo "<pre>";
+        echo $user;
+        echo $pass;
+        echo "</pre>";
+
 
         if(empty($user) || empty($pass)){
             throw new InvalidArgumentException("Faltan credenciales de correo en las variables de entorno");
         }
-        $dsn = sprintf('smtps://%s:%s@smtp.gmail.com', rawurldecode($user), rawurldecode($pass));
+        $dsn = sprintf('smtps://%s:%s@smtp.gmail.com', rawurlencode($user), rawurlencode($pass));
         $this->mailer = new Mailer(Transport::fromDsn($dsn));
         $this->authUser = $user;
     }
@@ -35,7 +40,7 @@ class SmtpMailer implements SenderMessagesInterface {
             ->from($message->getFrom() ?: $this->authUser)
             ->to($message->getTo ())
             ->subject($message->getSubject())
-            ->text($message->getBody());
+            ->html($message->getBody());
 
         $this->mailer->send($email); 
     }

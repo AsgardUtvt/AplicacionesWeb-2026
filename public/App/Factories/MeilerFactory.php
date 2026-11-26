@@ -2,7 +2,7 @@
 namespace App\Factories;
 
 use App\Interfaces\SenderMessagesInterface;
-use App\Tranports\SmtpMailer;
+use App\Transports\SmtpMailer;
 use InvalidArgumentException;
 
 class MeilerFactory {

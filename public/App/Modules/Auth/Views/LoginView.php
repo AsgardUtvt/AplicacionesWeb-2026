@@ -1,13 +1,45 @@
 <?php
-namespace App\Core\Modules\Auth\Views\LoginView;
-
+namespace App\Modules\Auth\Views\LoginView;
+use App\Modules\Usuario\Models\UsuarioModel;
 use App\Services\ViewService;
+use App\Services\GeneralServices;
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-echo ViewService::string_path('generar_cuenta');
+$userM = new UsuarioModel();
 
+$email = $_POST['email'] ?? "";
+$pass = $_POST['password'] ?? "";
+const BASE_URL = '/auth/login';
+if(isset($_POST['inciar-sesion']))
+{
+    if(empty(trim($email)) || empty(trim($pass))){
+        ViewService::redireccionarScript("Faltan datos", BASE_URL);
+    }
+    else
+    {
+        $datos=$userM->comprobar_usuario($email);
+        print_r($datos);
+        extract($datos, EXTR_SKIP);
+        if($resultado)
+        {
+            if(GeneralServices::VerificatePasswordHash($pass, $datos['datos']['pass']))
+            {
+                $_POST = [];
+                ViewService::url('/menu/menu-view');
+            }
+            else
+            {
+                ViewService::redireccionarScript("Usuario o comtraseña no encontrada", BASE_URL);
+            }
+        }
+        else
+        {
+            ViewService::redireccionarScript("Usuario o comtraseña no encontrada", BASE_URL);
+        }  
+
+    }
+}
+else
+{
 ?>
 
 <!DOCTYPE html>
@@ -23,15 +55,18 @@ echo ViewService::string_path('generar_cuenta');
 <div class="padre">
     <h1>Un grano de mostaza</h1>
     <img src="../../../../assest/img/logo/UnGranoDeMostazavm.min.svg" width="200" height="200" />
-        <form action="/auth/login/procesar" method="post">
+        <form method="post">
             <input type="email" placeholder="Correo" name="email"/>
             <br>
             <input type="password" placeholder="Contraseña" name="password"/>
             <br>
-            <input type="submit" value="Iniciar sesion"/>
-            <a href="<?= ViewService::string_path('generar_cuenta') ?>">Generar cuenta</a>
-            <a href="<?= ViewService::string_path('recuperar_cuenta') ?>">Olvide mi contraseña</a>
+            <input type="submit" value="Iniciar sesion" name="inciar-sesion"/>
+            <br>
+            <a href="/auth/generar-cuenta" ?>">Generar cuenta</a>
+            <a href="/auth/recuperar-cuenta">Olvide mi contraseña</a>
         </form>
 </div>
 </body>
 </html>
+<?php
+}
