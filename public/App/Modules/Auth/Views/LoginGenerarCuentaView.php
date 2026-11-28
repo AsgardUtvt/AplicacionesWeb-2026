@@ -2,9 +2,29 @@
 
 use App\Services\ViewService;
 
+$nombre = $_POST['nombre'];
+$paterno=$_POST['paterno'];
+$materno=$_POST['materno'] ;
+$email=$_POST['email'] ;
+$password=$_POST['password'] ;
+$localidad=$_POST['localidad'];
+$colonia=$_POST['colonia'];
+$cp=$_POST['codigoPostal'];
+$municipio=$_POST['municipio'];
+$principalstreet=$_POST['callePrincipal'];
+$onestreet=$_POST['calleUno'];
+$twostreet=$_POST['calleDos'];
+$exteriornum=$_POST['numEx'];
+$interiornum=$_POST['numInt'];
+
 if(isset($_POST['generar']))
 {
-    ViewService::require_view("/menu/menu-view");
+    if(empty(trim($nombre)) || empty(trim($paterno)) ||empty(trim($materno)) ||empty(trim($email)) ||empty(trim($password)) ||empty(trim($localidad)) ||empty(trim($colonia)) ||empty(trim($cp)) ||empty(trim($municipio)) ||empty(trim($principalstreet)) ||empty(trim($onestreet)) ||empty(trim($twostreet)) ||empty(trim($exteriornum)))
+    {
+        ViewService::soloAlerta("Faltan llenar datos");
+    }else{
+         r
+    }
 }
 ?>
 
